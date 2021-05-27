@@ -10,4 +10,4 @@ SERVER_HOST = '0.0.0.0'
 KEY_JWT = 'mySecret'  # Prod
 MAIL_SERVER = 'smtp.gmail.com'
 MAIL_USERNAME = 'redaabdou49@gmail.com'
-MAIL_PASSWORD = 'hblnjyhikjcddhli'
+MAIL_PASSWORD = ''
