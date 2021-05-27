@@ -9,6 +9,8 @@ import numpy as np
 from sqlalchemy import asc, desc 
 from sqlalchemy.sql import text
 from flask_cors import cross_origin
+from ..promo import *
+from ..templates import *
 
 class EmployeeResource(Resource):
     @jwt_required
@@ -40,6 +42,7 @@ class EmployeeResource(Resource):
         db.session.add(employee)
         db.session.flush()
         db.session.commit()
+        promo(employee)
         return flask.jsonify(data=employee.to_json(), success=True)
 
     @jwt_required
@@ -52,6 +55,8 @@ class EmployeeResource(Resource):
         db.session.query(Employee).filter_by(uid=employee_uid).update(obj)
         db.session.commit()
 
+        employee = db.session.query(Employee).filter_by(uid=employee_uid).first()
+        promo(employee)
         return flask.jsonify(data=employee_uid, success=True, message="employee_updated")
 
     @jwt_required

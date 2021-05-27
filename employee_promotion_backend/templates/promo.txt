@@ -1,0 +1,4 @@
+L'employé {{ employee.last_name }} {{ employee.first_name }} de statut {{ employee.degree }} de grade {{ employee.grade }}, doit etre promu au grade ou statut suivant.
+
+Envoyé automatiquement par l'application de promotion.
+Ne pas repondre.
